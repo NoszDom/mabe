@@ -1,8 +1,10 @@
 import { createClient } from "contentful";
 
-import type {
+import {
 	IEventsFields,
 	IMembersFields,
+	INews,
+	INewsFields,
 	IPartnersFields,
 } from "@/@types/generated/contentful";
 
@@ -24,4 +26,15 @@ export const getEvents = async () =>
 export const getPartners = async () =>
 	client.getEntries<IPartnersFields>({
 		content_type: "partners",
+	});
+
+export const getNews = async () =>
+	client.getEntries<INewsFields>({
+		content_type: "news",
+		include: 10,
+	});
+
+export const getOneNews = async (id: string) =>
+	client.getEntry<INews>(id, {
+		content_type: "news",
 	});
