@@ -3,3 +3,5 @@ rules:
   - base: main
     upstream: simonyiszk:main
     mergeMethod: hardreset
+    mergeUnstable: true
+
